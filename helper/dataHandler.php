@@ -22,13 +22,16 @@ class dataHandler {
         try {
 
             //Make SQL Query
-            $sql = "SELECT `name`, `picture`, `link` FROM `products` WHERE `name` LIKE '%?%' AND `store_id` = ?";
+            $sql = "SELECT name, picture, link FROM `products` WHERE name LIKE ? AND store_id = ?";
 
             //Make CB connection
             $db_connection = dbConnect::connect();
 
             //Fire SQL command
             $query = $db_connection->prepare($sql);
+
+            //We want a LIKE %$str% (contains match)
+            $str = '%' . $str . '%';
 
             //Bind params
             $query->bind_param("ss", $str, $storeId);
