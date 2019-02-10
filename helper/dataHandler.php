@@ -17,7 +17,7 @@ class dataHandler {
      *
      * Get data from table products matching search string
      */
-    public function findData($str, $storeId) {
+    public static function findData($str, $storeId) {
 
         try {
 
@@ -63,7 +63,7 @@ class dataHandler {
      *
      * * Add data to table products
      */
-    public function createData($p_name, $p_picture, $p_link, $storeId) {
+    public static function createData($p_name, $p_picture, $p_link, $storeId) {
 
         try {
 
@@ -106,7 +106,7 @@ class dataHandler {
      *
      * * Update data in table products
      */
-    public function updateData($p_name, $p_picture, $p_link, $storeId) {
+    public static function updateData($p_name, $p_picture, $p_link, $storeId) {
 
         try {
 
@@ -149,7 +149,7 @@ class dataHandler {
      *
      * Delete row in table products
      */
-    public function deleteData($p_id, $storeId) {
+    public static function deleteData($p_id, $storeId) {
 
         try {
 
