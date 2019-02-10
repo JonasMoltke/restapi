@@ -28,7 +28,7 @@ class dbConnect
     /**
      * @author Jonas.Sørensen
      * @created 10-02-2019
-     * @return mysqli_result|null
+     * @return mysqli
      *
      * make the connection
      * if error, make use of our logger

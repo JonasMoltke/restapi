@@ -22,16 +22,19 @@ class dataHandler {
         try {
 
             //Make SQL Query
-            $sql = "SELECT `name`, `picture`, `link` FROM `products` WHERE `name` LIKE '%" . $str . "%' AND `store_id` = " . $storeId . "";
+            $sql = "SELECT `name`, `picture`, `link` FROM `products` WHERE `name` LIKE '%?%' AND `store_id` = ?";
 
             //Make CB connection
             $db_connection = dbConnect::connect();
 
             //Fire SQL command
-            $query = $db_connection->query($sql);
+            $query = $db_connection->prepare($sql);
 
-            //Fetch all results
-            $result = $query->fetch_all(MYSQLI_ASSOC);
+            //Bind params
+            $query->bind_param("ss", $str, $storeId);
+
+            //Execute prepared query
+            $result = $query->execute();
 
             //Close DB connection
             dbConnect::close();
@@ -68,13 +71,19 @@ class dataHandler {
         try {
 
             //Make SQL Query
-            $sql = "INSERT INTO `products` (name, picture, link, store_id) VALUES ('" . $p_name . "', '" . $p_picture . "', '" . $p_link . "', " . $storeId;
+            $sql = "INSERT INTO `products` (name, picture, link, store_id) VALUES (?, ?, ?, ?)";
 
-            //Make CB connection
+            ///Make CB connection
             $db_connection = dbConnect::connect();
 
             //Fire SQL command
-            $result = $db_connection->query($sql);
+            $query = $db_connection->prepare($sql);
+
+            //Bind params
+            $query->bind_param("ssss", $p_name, $p_picture, $p_link, $storeId);
+
+            //Execute prepared query
+            $result = $query->execute();
 
             //Close DB connection
             dbConnect::close();
@@ -111,13 +120,19 @@ class dataHandler {
         try {
 
             //Make SQL Query
-            $sql = "UPDATE `products` set name='" . $p_name . "', picture='" . $p_picture . "', link='" . $p_link . "' WHERE storeId = " . $storeId;
+            $sql = "UPDATE `products` set name=?, picture=?, link=? WHERE storeId=?";
 
             //Make CB connection
             $db_connection = dbConnect::connect();
 
             //Fire SQL command
-            $result = $db_connection->query($sql);
+            $query = $db_connection->prepare($sql);
+
+            //Bind params
+            $query->bind_param("ssss", $p_name, $p_picture, $p_link, $storeId);
+
+            //Execute prepared query
+            $result = $query->execute();
 
             //Close DB connection
             dbConnect::close();
@@ -154,13 +169,19 @@ class dataHandler {
         try {
 
             //Make SQL Query
-            $sql = "DELETE from `products` WHERE id = " . $p_id . " AND storeId = " . $storeId;
+            $sql = "DELETE from `products` WHERE id=? AND storeId=?";
 
             //Make CB connection
             $db_connection = dbConnect::connect();
 
             //Fire SQL command
-            $result = $db_connection->query($sql);
+            $query = $db_connection->prepare($sql);
+
+            //Bind params
+            $query->bind_param("ss", $p_id, $storeId);
+
+            //Execute prepared query
+            $result = $query->execute();
 
             //Close DB connection
             dbConnect::close();
