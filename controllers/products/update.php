@@ -15,10 +15,17 @@ require_once '../product.php';
 class update
 {
 
+    //Make call to handleData function
     private function __construct() {
         $this->handleData();
     }
 
+    /**
+     * @author Jonas.Sørensen
+     * @created 10-02-2019
+     *
+     * Handle update API requests
+     */
     private function handleData()
     {
 
