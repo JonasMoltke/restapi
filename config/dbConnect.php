@@ -18,43 +18,62 @@ class dbConnect
     /**
      * Our database information for connecting to the database
      */
-    private $db_host = '127.0.0.1'; //database host
+    private $db_host = 'localhost'; //database host
     private $db_user = 'wa_autobalancer'; //database username
     private $db_pass = 'password123'; //database password
     private $db_database = 'wa'; //database to use
-    private $connection;
+
+    public $connection;
 
     /**
      * @author Jonas.Sørensen
      * @created 10-02-2019
-     * @return PDO|null
+     * @return mysqli_result|null
      *
      * make the connection
      * if error, make use of our logger
      */
-    public function connection() {
+    public function connect() {
 
         $this->connection = null;
 
         try {
+
             //Establish connection
-            $this->connection = new PDO('
-                mysql:host=' . $this->db_host . ';
-                dbname=' . $this->db_database,
-                $this->db_user,
-                $this->db_pass
-            );
+            $this->connection = mysqli_connect($this->db_host, $this->db_user, $this->db_pass, $this->db_database) or die("Couldn't connect to database");
 
-            //Execute connection
-            $this->connection->exec("set names utf8");
+        } catch(Exception $e) {
 
-        } catch(PDOException $e) {
             //Log exception
             Logger::log('Error: ' . $e->getMessage(), 'exception');
-            die();
+            die("Couldn't connect to database");
+
         }
 
+        //Return connection
         return $this->connection;
+    }
+
+    /**
+     * @author Jonas.Sørensen
+     * @created 10-02-2019
+     *
+     * Close SQL connection
+     */
+    public function close() {
+
+        try {
+
+            //Close connection
+            $this->connection->close();
+
+        } catch(Exception $e){
+
+            //Log exception
+            Logger::log('Error closing SQL: ' . $e->getMessage(), 'exception');
+            die("Couldn't close SQL");
+
+        }
     }
 
 }
