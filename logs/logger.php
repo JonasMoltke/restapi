@@ -38,7 +38,7 @@ class Logger
 
             return true;
 
-         } catch(PDOException $e) {
+         } catch(Exception $e) {
              //Echo out error directly
              echo 'ERROR: ' . $e->getMessage();
 
