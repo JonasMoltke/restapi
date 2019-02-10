@@ -1,0 +1,1 @@
+Please implement the 4 API endpoints mentioned above, in the language you consider fit for the purpose.
