@@ -34,7 +34,11 @@ class dataHandler {
             $str = '%' . $str . '%';
 
             //Bind params
-            $query->bind_param("ss", $str, $storeId);
+            $query->bind_param("ss", $b_str, $b_storeId);
+
+            //Set binded params
+            $b_str = $str;
+            $b_storeId = $storeId;
 
             //Execute prepared query
             $result = $query->execute();
@@ -83,7 +87,13 @@ class dataHandler {
             $query = $db_connection->prepare($sql);
 
             //Bind params
-            $query->bind_param("ssss", $p_name, $p_picture, $p_link, $storeId);
+            $query->bind_param("ssss", $b_name, $b_picture, $b_link, $b_storeId);
+
+            //Set binded params
+            $b_name = $p_name;
+            $b_picture = $p_picture;
+            $b_link = $p_link;
+            $b_storeId = $storeId;
 
             //Execute prepared query
             $result = $query->execute();
@@ -132,7 +142,13 @@ class dataHandler {
             $query = $db_connection->prepare($sql);
 
             //Bind params
-            $query->bind_param("ssss", $p_name, $p_picture, $p_link, $storeId);
+            $query->bind_param("ssss", $b_name, $b_picture, $b_link, $b_storeId);
+
+            //Set binded params
+            $b_name = $p_name;
+            $b_picture = $p_picture;
+            $b_link = $p_link;
+            $b_storeId = $storeId;
 
             //Execute prepared query
             $result = $query->execute();
@@ -181,7 +197,11 @@ class dataHandler {
             $query = $db_connection->prepare($sql);
 
             //Bind params
-            $query->bind_param("ss", $p_id, $storeId);
+            $query->bind_param("ss", $b_id, $b_storeId);
+
+            //Set binded params
+            $b_id = $p_id;
+            $b_storeId = $storeId;
 
             //Execute prepared query
             $result = $query->execute();
