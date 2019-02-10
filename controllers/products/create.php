@@ -38,7 +38,7 @@ class create
         try {
 
             //Find products matching search terms
-            $product->create($postedData->name, $postedData->picture, $postedData->link, $postedData->store_id);
+            $product->createProduct($postedData->name, $postedData->picture, $postedData->link, $postedData->store_id);
 
             $result =
                 json_encode(

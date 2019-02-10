@@ -38,7 +38,7 @@ class delete
         try {
 
             //Find products matching search terms
-            $product->remove($postedData->id, $postedData->store_id);
+            $product->removeProduct($postedData->id, $postedData->store_id);
 
             $result =
                 json_encode(

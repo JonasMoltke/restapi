@@ -33,7 +33,7 @@ class find
         $product = new Product();
 
         //Find products matching search terms
-        $products = $product->find($postedData->search, $postedData->store_id);
+        $products = $product->findProduct($postedData->search, $postedData->store_id);
 
         //If found any products
         if ($products->rowCount() > 0) {

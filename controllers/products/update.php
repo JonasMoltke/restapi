@@ -38,7 +38,7 @@ class update
         try {
 
             //Find products matching search terms
-            $product->update($postedData->name, $postedData->picture, $postedData->link, $postedData->store_id);
+            $product->updateProduct($postedData->name, $postedData->picture, $postedData->link, $postedData->store_id);
 
             $result =
                 json_encode(
