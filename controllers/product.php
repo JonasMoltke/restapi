@@ -23,7 +23,11 @@ class product
     public function findProduct($str, $storeId)
     {
         //Make middleware check
-        if(authChecker::check($this->credentials->username, $this->credentials->password, $storeId) == true) {
+        if(authChecker::check(
+            $this->credentials->username,
+            $this->credentials->password,
+            $storeId
+            ) == true) {
             dataHandler::findData($str, $storeId);
         }
     }
@@ -31,7 +35,11 @@ class product
     public function createProduct($p_name, $p_picture, $p_link, $storeId)
     {
         //Make middleware check
-        if(authChecker::check($this->credentials->username, $this->credentials->password, $storeId) == true) {
+        if(authChecker::check(
+                $this->credentials->username,
+                $this->credentials->password,
+                $storeId
+            ) == true) {
             dataHandler::createData($p_name, $p_picture, $p_link, $storeId);
         }
     }
@@ -39,7 +47,11 @@ class product
     public function updateProduct($p_name, $p_picture, $p_link, $storeId)
     {
         //Make middleware check
-        if(authChecker::check($this->credentials->username, $this->credentials->password, $storeId) == true) {
+        if(authChecker::check(
+                $this->credentials->username,
+                $this->credentials->password,
+                $storeId
+            ) == true) {
             dataHandler::updateData($p_name, $p_picture, $p_link, $storeId);
         }
     }
@@ -47,7 +59,11 @@ class product
     public function removeProduct($productId, $storeId)
     {
         //Make middleware check
-        if(authChecker::check($this->credentials->username, $this->credentials->password, $storeId) == true) {
+        if(authChecker::check(
+                $this->credentials->username,
+                $this->credentials->password,
+                $storeId
+            ) == true) {
             dataHandler::removeData($productId, $storeId);
         }
     }

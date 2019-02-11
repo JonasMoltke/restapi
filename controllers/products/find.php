@@ -32,7 +32,10 @@ class find
         $postedData = json_decode(file_get_contents("php://input"));
 
         //Check if any necessary fields empty
-        if (empty($postedData) OR empty($postedData->search) OR empty($postedData->store_id)) {
+        if (empty($postedData)
+            OR empty($postedData->search)
+            OR empty($postedData->store_id)
+        ) {
             exit('One or several of the required fields were found empty');
         }
 
@@ -49,7 +52,7 @@ class find
             $result["body"] = array();
 
             //For every product add product to array
-            foreach($products as $entity) {
+            foreach ($products as $entity) {
 
                 //Add fields to array
                 $fields = array(

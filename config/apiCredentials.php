@@ -6,7 +6,6 @@
 
 class apiCredentials
 {
-
     public $credentials = array();
 
     /**
@@ -24,5 +23,4 @@ class apiCredentials
         //Return credentials
         return $credentials;
     }
-
 }

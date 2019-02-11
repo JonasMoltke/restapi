@@ -33,7 +33,10 @@ class delete
         $postedData = json_decode(file_get_contents("php://input"));
 
         //Check if any necessary fields empty
-        if (empty($postedData) OR empty($postedData->id) OR empty($postedData->store_id)) {
+        if (empty($postedData)
+            OR empty($postedData->id)
+            OR empty($postedData->store_id)
+        ) {
             exit('One or several of the required fields were found empty');
         }
 

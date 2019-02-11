@@ -32,7 +32,12 @@ class update
         $postedData = json_decode(file_get_contents("php://input"));
 
         //Check if any necessary fields empty
-        if (empty($postedData) OR empty($postedData->name) OR empty($postedData->picture) OR empty($postedData->link) OR empty($postedData->store_id)) {
+        if (empty($postedData)
+            OR empty($postedData->name)
+            OR empty($postedData->picture)
+            OR empty($postedData->link)
+            OR empty($postedData->store_id)
+        ) {
             exit('One or several of the required fields were found empty');
         }
 
@@ -43,7 +48,12 @@ class update
 
         try {
             //Find products matching search terms
-            $product->updateProduct($postedData->name, $postedData->picture, $postedData->link, $postedData->store_id);
+            $product->updateProduct(
+                $postedData->name,
+                $postedData->picture,
+                $postedData->link,
+                $postedData->store_id
+            );
 
             $result =
                 json_encode(

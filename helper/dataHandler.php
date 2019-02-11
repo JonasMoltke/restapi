@@ -33,7 +33,7 @@ class dataHandler
             $str = '%' . $str . '%';
 
             //Bind params
-            $query->bind_param("ss", $str, $storeId);
+            $query->bind_param("si", $str, $storeId);
 
             //Execute prepared query
             $result = $query->execute();
@@ -77,7 +77,7 @@ class dataHandler
             $query = $db_connection->prepare($sql);
 
             //Bind params
-            $query->bind_param("ssss", $p_name, $p_picture, $p_link, $storeId);
+            $query->bind_param("sssi", $p_name, $p_picture, $p_link, $storeId);
 
             //Execute prepared query
             $result = $query->execute();
@@ -122,7 +122,7 @@ class dataHandler
             $query = $db_connection->prepare($sql);
 
             //Bind params
-            $query->bind_param("ssss", $p_name, $p_picture, $p_link, $storeId);
+            $query->bind_param("sssi", $p_name, $p_picture, $p_link, $storeId);
 
             //Execute prepared query
             $result = $query->execute();
@@ -167,7 +167,7 @@ class dataHandler
             $query = $db_connection->prepare($sql);
 
             //Bind params
-            $query->bind_param("ss", $p_id, $storeId);
+            $query->bind_param("si", $p_id, $storeId);
 
             //Execute prepared query
             $result = $query->execute();
