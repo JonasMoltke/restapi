@@ -14,9 +14,9 @@ require_once '../product.php';
 
 class find
 {
-
     //Make call to handleData function
-    private function __construct() {
+    private function __construct()
+    {
         $this->handleData();
     }
 
@@ -28,7 +28,6 @@ class find
      */
     private function handleData()
     {
-
         //Get posted data end JSON decode it
         $postedData = json_decode(file_get_contents("php://input"));
 
@@ -45,6 +44,7 @@ class find
         //If found any products
         if ($products->rowCount() > 0) {
 
+            //Define arrays
             $result = array();
             $result["body"] = array();
 
@@ -64,9 +64,7 @@ class find
 
             //JSON encode products array and echo it
             echo json_encode($products);
-
         } else {
-
             //JSON encode empty array
             $result =
                 json_encode(

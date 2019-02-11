@@ -16,10 +16,10 @@
  * controllers/products/find.php
  * controllers/products/update.php
  */
-class api {
-
-    private function __construct() {
+class api
+{
+    private function __construct()
+    {
         require_once("controllers/product.php");
     }
-
 }

@@ -21,8 +21,8 @@ class Logger
      *
      * Logs string + file. Fallback file is system.log
      */
-    public static function log($str, $file = 'system') {
-
+    public static function log($str, $file = 'system')
+    {
          try {
              //Define file name
              $filename = $file . '.log';
@@ -37,14 +37,11 @@ class Logger
             file_put_contents($filename, $fileContent);
 
             return true;
-
          } catch(Exception $e) {
              //Echo out error directly
              echo 'ERROR: ' . $e->getMessage();
 
              return false;
          }
-
     }
-
 }

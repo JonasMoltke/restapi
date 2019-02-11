@@ -22,7 +22,6 @@ class dbConnect
     private $db_user = 'wa_autobalancer'; //database username
     private $db_pass = 'password123'; //database password
     private $db_database = 'wa'; //database to use
-
     public $connection;
 
     /**
@@ -33,8 +32,8 @@ class dbConnect
      * make the connection
      * if error, make use of our logger
      */
-    public function connect() {
-
+    public function connect()
+    {
         $this->connection = null;
 
         try {
@@ -60,8 +59,8 @@ class dbConnect
      *
      * Close SQL connection
      */
-    public function close() {
-
+    public function close()
+    {
         try {
 
             //Close connection
@@ -75,5 +74,4 @@ class dbConnect
 
         }
     }
-
 }

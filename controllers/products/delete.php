@@ -16,7 +16,8 @@ class delete
 {
 
     //Make call to handleData function
-    private function __construct() {
+    private function __construct()
+    {
         $this->handleData();
     }
 
@@ -28,7 +29,6 @@ class delete
      */
     private function handleData()
     {
-
         //Get posted data end JSON decode it
         $postedData = json_decode(file_get_contents("php://input"));
 
@@ -39,11 +39,11 @@ class delete
 
         $product = new Product();
 
+        //Define arrays
         $result = array();
         $result["body"] = array();
 
         try {
-
             //Find products matching search terms
             $product->removeProduct($postedData->id, $postedData->store_id);
 
@@ -53,21 +53,17 @@ class delete
                         "result" => 'success'
                     )
                 );
-
         } catch(Exception $e) {
-
             $result =
                 json_encode(
                     array(
                         "result" => 'fail'
                     )
                 );
-
         }
 
         //Echo result
         echo $result;
-
     }
 }
 ?>

@@ -7,8 +7,8 @@
 require_once("../config/dbConnect.php");
 require_once("../logs/logger.php");
 
-class dataHandler {
-
+class dataHandler
+{
     /**
      * @author Jonas.Sørensen
      * @created 10-02-2019
@@ -17,10 +17,9 @@ class dataHandler {
      *
      * Get data from table products matching search string
      */
-    public static function findData($str, $storeId) {
-
+    public static function findData($str, $storeId)
+    {
         try {
-
             //Make SQL Query
             $sql = "SELECT name, picture, link FROM `products` WHERE name LIKE ? AND store_id = ?";
 
@@ -41,21 +40,17 @@ class dataHandler {
 
             //Close DB connection
             dbConnect::close();
-
         } catch(Exception $e) {
-
             //Close DB connection
             dbConnect::close();
 
             //Log exception
             Logger::log('Error: ' . $e->getMessage(), 'exception');
             die("Couldn't fire findData");
-
         }
 
         //Return result
         return $result;
-
     }
 
     /**
@@ -69,10 +64,9 @@ class dataHandler {
      *
      * * Add data to table products
      */
-    public static function createData($p_name, $p_picture, $p_link, $storeId) {
-
+    public static function createData($p_name, $p_picture, $p_link, $storeId)
+    {
         try {
-
             //Make SQL Query
             $sql = "INSERT INTO `products` (name, picture, link, store_id) VALUES (?, ?, ?, ?)";
 
@@ -90,21 +84,17 @@ class dataHandler {
 
             //Close DB connection
             dbConnect::close();
-
         } catch(Exception $e) {
-
             //Close DB connection
             dbConnect::close();
 
             //Log exception
             Logger::log('Error: ' . $e->getMessage(), 'exception');
             die("Couldn't fire createData");
-
         }
 
         //Return result
         return $result;
-
     }
 
     /**
@@ -118,8 +108,8 @@ class dataHandler {
      *
      * * Update data in table products
      */
-    public static function updateData($p_name, $p_picture, $p_link, $storeId) {
-
+    public static function updateData($p_name, $p_picture, $p_link, $storeId)
+    {
         try {
 
             //Make SQL Query
@@ -139,21 +129,17 @@ class dataHandler {
 
             //Close DB connection
             dbConnect::close();
-
         } catch(Exception $e) {
-
             //Close DB connection
             dbConnect::close();
 
             //Log exception
             Logger::log('Error: ' . $e->getMessage(), 'exception');
             die("Couldn't fire updateData");
-
         }
 
         //Return result
         return $result;
-
     }
 
     /**
@@ -167,8 +153,8 @@ class dataHandler {
      *
      * Delete row in table products
      */
-    public static function deleteData($p_id, $storeId) {
-
+    public static function deleteData($p_id, $storeId)
+    {
         try {
 
             //Make SQL Query
@@ -188,21 +174,16 @@ class dataHandler {
 
             //Close DB connection
             dbConnect::close();
-
         } catch(Exception $e) {
-
             //Close DB connection
             dbConnect::close();
 
             //Log exception
             Logger::log('Error: ' . $e->getMessage(), 'exception');
             die("Couldn't fire deleteData");
-
         }
 
         //Return result
         return $result;
-
     }
-
 }

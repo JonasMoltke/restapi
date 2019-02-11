@@ -7,7 +7,7 @@
 class apiCredentials
 {
 
-    private $credentials = array();
+    public $credentials = array();
 
     /**
      * @author Jonas.Sørensen
@@ -16,7 +16,8 @@ class apiCredentials
      *
      * Set credentials, get them and return them
      */
-    public static function getCredentials() {
+    public static function getCredentials()
+    {
         $credentials['email'] = 'test@gmail.com';
         $credentials['password'] = 'hello123';
 

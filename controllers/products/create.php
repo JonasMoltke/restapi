@@ -16,7 +16,8 @@ class create
 {
 
     //Make call to handleData function
-    private function __construct() {
+    private function __construct()
+    {
         $this->handleData();
     }
 
@@ -39,11 +40,11 @@ class create
 
         $product = new Product();
 
+        //Define arrays
         $result = array();
         $result["body"] = array();
 
         try {
-
             //Find products matching search terms
             $product->createProduct($postedData->name, $postedData->picture, $postedData->link, $postedData->store_id);
 
@@ -53,21 +54,17 @@ class create
                         "result" => 'success'
                     )
                 );
-
         } catch(Exception $e) {
-
             $result =
                 json_encode(
                     array(
                         "result" => 'fail'
                     )
                 );
-
         }
 
         //Echo result
         echo $result;
-
     }
 }
 ?>

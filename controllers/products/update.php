@@ -14,9 +14,9 @@ require_once '../product.php';
 
 class update
 {
-
     //Make call to handleData function
-    private function __construct() {
+    private function __construct()
+    {
         $this->handleData();
     }
 
@@ -28,7 +28,6 @@ class update
      */
     private function handleData()
     {
-
         //Get posted data end JSON decode it
         $postedData = json_decode(file_get_contents("php://input"));
 
@@ -43,7 +42,6 @@ class update
         $result["body"] = array();
 
         try {
-
             //Find products matching search terms
             $product->updateProduct($postedData->name, $postedData->picture, $postedData->link, $postedData->store_id);
 
@@ -53,16 +51,13 @@ class update
                         "result" => 'success'
                     )
                 );
-
         } catch(Exception $e) {
-
             $result =
                 json_encode(
                     array(
                         "result" => 'fail'
                     )
                 );
-
         }
 
         //Echo result
